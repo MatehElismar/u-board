@@ -11,7 +11,7 @@ import { User } from "src/app/models/user.model";
 import { AppService } from "src/app/services/app.service";
 import { AuthService } from "src/app/services/auth.service";
 import { SubSink } from "subsink/dist/subsink";
-const dot = require("dot-object");
+// const dot = require("dot-object");
 
 @Component({
   selector: "app-documents",
@@ -24,7 +24,7 @@ export class DocumentsPage implements OnInit {
   studentRecord: StudentRecord;
   user: User;
   subs = new SubSink();
-  documents: Array<{ name: string; files: File[] }>;
+  documents: Array<{ name: string; files: File[], urls: string[]}>;
   selectedDocument: string;
 
   constructor(
@@ -54,13 +54,25 @@ export class DocumentsPage implements OnInit {
     });
   }
 
+  getFileUrl (docName: string){
+    const document = this.documents.find((x) => (x.name == docName));
+    return document.urls;
+  }
+
+  cancelUpload (docName: string){
+    const i = this.documents.findIndex((x) => x.name == docName);
+    this.documents[i].files = null;
+    this.documents[i].urls = [];
+  }
+
   onFileChanged(e) {
     const i = this.documents.findIndex((x) => x.name == this.selectedDocument);
     if (i > -1) {
       this.documents[i].files = e.files;
-    } else this.documents.push({ name: this.selectedDocument, files: e.files });
+    } else this.documents.push({ name: this.selectedDocument, files: e.files, urls:[]});
     this.selectedDocument = null;
   }
+
 
   uploadFile(docName: string) {
     this.fileInput.nativeElement.click();
@@ -96,7 +108,7 @@ export class DocumentsPage implements OnInit {
                     } as UDocument;
 
                     try {
-                      this.afs.doc(`student-records/${this.studentRecord.id}`).update(dot.dot(obj));
+                      // this.afs.doc(`student-records/${this.studentRecord.id}`).update(dot.dot(obj));
                       const toast = await this.toastCtrl.create({
                         message: "Exito!!",
                       });

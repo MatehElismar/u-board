@@ -29,7 +29,7 @@
               </ion-label> -->
 
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
 
@@ -38,13 +38,13 @@
             <!-- <div class="btn-actions">
               <ion-row>
                 <ion-col class="ion-text-center" size="6">
-                  <ion-button  color="danger" >
+                  <ion-button (click)="cancelUpload()"   color="danger" >
                     Cancel
                   </ion-button>
-                </ion-col >
+                </ion-col>
                 <ion-col class="ion-text-center" size="6">
-                  <ion-button>
-                    Update
+                  <ion-button (click)="onFileChanged()" color="secondary">
+                    update
                   </ion-button>
                 </ion-col>
               </ion-row>
@@ -64,7 +64,7 @@
                 Certificacion subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -82,7 +82,7 @@
                 Records subidos
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -100,7 +100,7 @@
                 Cedula subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -118,7 +118,7 @@
                 Copia subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -127,6 +127,7 @@
           <ion-card color="light">
             <div class="image">
               <img src="../../../assets/ilustrations/waiting.svg" alt="" />
+              [img]="getFileUrl('FOTOS2X2')"
             </div>
             <ion-card-content class="ion-text-center">
               <ion-label> Foto 2x2 Reciente </ion-label>
@@ -136,7 +137,7 @@
                 Foto subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -154,7 +155,7 @@
                 Visa subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -172,7 +173,7 @@
                 Pruba examen subida
               </ion-label> -->
               <div class="btn">
-                <ion-button> Upload </ion-button>
+                <ion-button (click)="uploadFile()"> Upload </ion-button>
               </div>
             </ion-card-content>
           </ion-card>

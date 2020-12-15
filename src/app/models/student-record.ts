@@ -13,5 +13,12 @@ export interface StudentRecord {
   address?: UAddress;
   documents?: {
     ACTA_NACIMIENTO: UDocument;
+    CERTIFICACION_BACHILLERATO: UDocument;
+    RECORD_BACHILLERATO:UDocument;
+    RECORD_INSTITUCION:UDocument;
+    CEDULA:UDocument;
+    FOTOS2X2:UDocument;
+    VISA:UDocument;
+    EXAMEN_ESPANOL:UDocument;
   };
 }
