@@ -11,7 +11,6 @@ import { User } from "src/app/models/user.model";
 import { AppService } from "src/app/services/app.service";
 import { AuthService } from "src/app/services/auth.service";
 import { SubSink } from "subsink/dist/subsink";
-const dot = require("dot-object");
 
 @Component({
   selector: "app-documents",
@@ -96,7 +95,12 @@ export class DocumentsPage implements OnInit {
                     } as UDocument;
 
                     try {
-                      this.afs.doc(`student-records/${this.studentRecord.id}`).update(dot.dot(obj));
+                      this.afs.doc(`student-records/${this.studentRecord.id}`).update({
+                        [`documents.${docName}`]: {
+                          urls,
+                          status: "sent",
+                        },
+                      });
                       const toast = await this.toastCtrl.create({
                         message: "Exito!!",
                       });
