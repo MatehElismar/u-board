@@ -9,3 +9,4 @@ export interface User {
 }
 
 export type Role = "root" | "admin" | "student";
+/*  */
