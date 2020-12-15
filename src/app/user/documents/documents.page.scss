@@ -1,0 +1,34 @@
+ion-toolbar {
+  --background: #545ee8;
+  color: white;
+}
+
+.title {
+  padding-left: 30px;
+  padding-top: 15px;
+  color: #ffb700;
+  font-family: "Open Sans", sans-serif;
+}
+
+ion-card {
+  min-height: 300px;
+}
+
+// ion-card-content ion-label {
+//     font-weight: 500 !important;
+// }
+
+ion-button {
+  font-size: 12px !important;
+  --background: #ffb700;
+  --border-radius: 15px !important;
+}
+
+ion-card img {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    padding-top: 10px;
+}

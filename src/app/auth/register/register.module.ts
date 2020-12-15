@@ -8,11 +8,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { RegisterPageRoutingModule } from './register-routing.module';
+import { RegisterPageRoutingModule } from "./register-routing.module";
 
-import { RegisterPage } from './register.page';
+import { RegisterPage } from "./register.page";
 
 @NgModule({
   imports: [

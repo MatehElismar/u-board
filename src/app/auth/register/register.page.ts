@@ -76,17 +76,17 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
         )
         .subscribe(
           async (res) => {
-            console.log("login res", res);
-            if (res.errorInfo) {
+            console.log("register", res);
+            if (res.error.errorInfo) {
               this.app.loading.dismiss();
-              const alert = await this.app.createErrorAlert(res.errorInfo, ["Ok"]);
+              const alert = await this.app.createErrorAlert(res.error.errorInfo, ["Ok"]);
               alert.present();
             } else {
               const recordID = this.app.generatePushID();
               const record: StudentRecord = {
                 id: recordID,
                 cedula: v.cedula,
-                uid: res.data.user.uid,
+                uid: res.data.uid,
                 birthdate: v.birthdate,
                 career: v.carrer,
                 gender: v.gender,
