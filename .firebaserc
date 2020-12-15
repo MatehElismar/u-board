@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "u-board-e625a": {
+      "hosting": {
+        "app": [
+          "u-board-e625a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "u-board-e625a"
+  }
+}
