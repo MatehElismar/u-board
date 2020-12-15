@@ -13,7 +13,7 @@ import { AngularFirestoreModule, SETTINGS } from "@angular/fire/firestore";
 import { AngularFireFunctionsModule } from "@angular/fire/functions";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { environment } from "src/environments/environment";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: SETTINGS,
+      useValue: environment.production
+        ? undefined
+        : {
+            host: "localhost:8080",
+            ssl: false,
+          },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
