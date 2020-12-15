@@ -1,16 +1,17 @@
+import { UAddress } from "./address.model";
 import { UDocument } from "./udocument";
 
 export interface StudentRecord {
-    uid?: string;
-    names?: string;
-    lastnames?: string;
-    cedula: string;
-    birthdate?: string;
-    gender?: string;
-    career?: string;
-    streetName?: string;
-    streetNumber?: string;
-    province?: string;
-    documents: UDocument;
-  }
-  
+  id?: string;
+  uid?: string;
+  names?: string;
+  lastnames?: string;
+  cedula: string;
+  birthdate?: string;
+  gender?: string;
+  career?: string;
+  address?: UAddress;
+  documents?: {
+    ACTA_NACIMIENTO: UDocument;
+  };
+}

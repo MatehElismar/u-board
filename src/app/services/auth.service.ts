@@ -52,11 +52,7 @@ export class AuthService {
     return callable({ ...user, ...(password ? { password } : {}) }).pipe(
       tap((userRecord) => {
         if (!userRecord.errorInfo) {
-          this.updateUserData(
-            { ...userRecord, cellphone: user.cellphone, country: user.country },
-            user.role,
-            true
-          ).then(() => {
+          this.updateUserData({ ...userRecord, cellphone: user.cellphone }, user.role, true).then(() => {
             // if (user.role !== "student") {
             this.sendPasswordResetEmail(userRecord.email);
             // }
