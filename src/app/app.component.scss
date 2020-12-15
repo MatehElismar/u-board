@@ -6,6 +6,12 @@ ion-menu {
   width: 200px;
 }
 
+@media (max-width: 768px) {
+  ion-menu {
+    width: 100%;
+  }
+}
+
 ion-menu.md ion-content {
   --padding-start: 8px;
   --padding-end: 8px;
