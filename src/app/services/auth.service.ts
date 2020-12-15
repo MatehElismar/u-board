@@ -53,7 +53,7 @@ export class AuthService {
       tap((userRecord) => {
         if (!userRecord.errorInfo) {
           this.updateUserData(
-            { ...userRecord, cellphone: user.cellphone, country: user.country },
+            { ...userRecord, cellphone: user.cellphone},
             user.role,
             true
           ).then(() => {
