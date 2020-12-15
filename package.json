@@ -30,6 +30,7 @@
     "@ionic/angular": "^5.0.0",
     "firebase": "^7.0 || ^8.0",
     "glightbox": "^3.0.6",
+    "mateh-ng-m-datatable": "^1.1.11",
     "mateh-ng-m-validation": "^1.1.4",
     "rxjs": "~6.5.5",
     "subsink": "^1.0.2",

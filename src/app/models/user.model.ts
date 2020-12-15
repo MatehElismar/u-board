@@ -1,3 +1,5 @@
+import { StudentRecord } from "./student-record";
+
 export interface User {
   uid?: string;
   role?: Role;

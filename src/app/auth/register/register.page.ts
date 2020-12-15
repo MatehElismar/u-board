@@ -30,8 +30,8 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
 
   ngOnInit() {
     this.admissionForm = this.fb.group({
-      firstname: ["", Validators.required],
-      lastname: ["", Validators.required],
+      names: ["", Validators.required],
+      lastnames: ["", Validators.required],
       cedula: ["", Validators.required, this.cedulaValidator],
       birthdate: ["", Validators.required],
       gender: ["", Validators.required],
@@ -59,17 +59,17 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
         )
         .subscribe(
           async (res) => {
-            console.log("login res", res);
-            if (res.errorInfo) {
+            console.log("register", res);
+            if (res.error.errorInfo) {
               this.app.loading.dismiss();
-              const alert = await this.app.createErrorAlert(res.errorInfo, ["Ok"]);
+              const alert = await this.app.createErrorAlert(res.error.errorInfo, ["Ok"]);
               alert.present();
             } else {
               const recordID = this.app.generatePushID();
               const record: StudentRecord = {
                 id: recordID,
                 cedula: v.cedula,
-                uid: res.data.user.uid,
+                uid: res.data.uid,
                 birthdate: v.birthdate,
                 career: v.carrer,
                 gender: v.gender,
@@ -82,15 +82,21 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
                 },
               };
 
-              this.app.loading.dismiss();
-              const alert = await this.alertCtrl.create({
-                header: "Exito",
-                subHeader: "Verifique su cuenta",
-                message: "Hemos enviado un correo de verificacion a " + v.email,
-                buttons: ["Ok"],
-              });
-              alert.present();
-              this.router.navigate(["/auth/login"]);
+              try {
+                await this.afs.doc(`student-records/${recordID}`).set(record);
+                this.app.loading.dismiss();
+                const alert = await this.alertCtrl.create({
+                  header: "Exito",
+                  subHeader: "Verifique su cuenta",
+                  message: "Hemos enviado un correo de verificacion a " + v.email,
+                  buttons: ["Ok"],
+                });
+                alert.present();
+                this.router.navigate(["/user/documents"]);
+              } catch (err) {
+                const alert = await this.app.createErrorAlert(err, ["Ok"]);
+                alert.present();
+              }
             }
           },
           (err) => {
