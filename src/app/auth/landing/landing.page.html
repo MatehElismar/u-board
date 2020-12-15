@@ -2,8 +2,8 @@
   <ion-toolbar>
     <ion-title>U Board</ion-title>
     <ion-buttons slot="end">
-      <ion-button> Acceder </ion-button>
-      <ion-button class="btn-regis"> Registrarme </ion-button>
+      <ion-button type="clear" [routerLink]="'/auth/login'"> Acceder </ion-button>
+      <ion-button type="clear" [routerLink]="'/auth/register'" class="btn-regis"> Registrarme </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

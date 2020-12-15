@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatStepper } from "@angular/material/stepper";
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Router } from "@angular/router";
 import { AlertController } from "@ionic/angular";
 import { FormComponentBase } from "mateh-ng-m-validation";
@@ -12,11 +14,25 @@ import { AuthService } from "src/app/services/auth.service";
   selector: "app-register",
   templateUrl: "./register.page.html",
   styleUrls: ["./register.page.scss"],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
+  }],
 })
 export class RegisterPage extends FormComponentBase implements OnInit, AfterViewInit {
-  validationMessages = {};
+
+  validationMessages = {
+    names: { required: "Los nombres son un campo requerido" },
+    lastnames: { required: "Los apellidos son un campo requerido" },
+    cedula: { required: "La cédula es un campo requerido" },
+    birthdate: { required: "La fecha de nacimiento es un campo requerido" },
+    gender: { required: "El género es un campo requerido" },
+    career: { required: "La carrera es un campo requerido" },
+  };
 
   admissionForm: FormGroup;
+  isPersonalInfoDone: boolean = false;
+  @ViewChild('stepper') stepper: MatStepper;
+
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
@@ -30,8 +46,8 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
 
   ngOnInit() {
     this.admissionForm = this.fb.group({
-      firstname: ["", Validators.required],
-      lastname: ["", Validators.required],
+      names: ["", Validators.required],
+      lastnames: ["", Validators.required],
       cedula: ["", Validators.required, this.cedulaValidator],
       birthdate: ["", Validators.required],
       gender: ["", Validators.required],
@@ -44,12 +60,13 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
   }
 
   save() {
+    console.log(this.admissionForm.value);
     if (this.admissionForm.valid) {
       const v = this.admissionForm.value;
       this.auth
         .createUser(
           {
-            displayName: v.fullname,
+            displayName: v.names + ' ' + v.lastnames,
             role: "student",
             disabled: false,
             email: v.email,
@@ -78,7 +95,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
                 address: {
                   province: v.province,
                   streetName: v.streetName,
-                  streetNumber: v.streetName,
+                  streetNumber: v.streetNumber,
                 },
               };
 
@@ -90,7 +107,14 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
                 buttons: ["Ok"],
               });
               alert.present();
-              this.router.navigate(["/auth/login"]);
+
+              this.isPersonalInfoDone = true;
+
+              setTimeout(() => {
+                this.stepper.next();
+              }, 1);
+
+              // this.router.navigate(["/auth/login"]);
             }
           },
           (err) => {
