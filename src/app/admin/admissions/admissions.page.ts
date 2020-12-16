@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import { NgMDatatable, NgMDatatableOptions } from "mateh-ng-m-datatable";
+import { Admission } from "src/app/models/admision";
+import { User } from "src/app/models/user.model";
+import { AppService } from "src/app/services/app.service";
+import { AuthService } from "src/app/services/auth.service";
 
 export interface AdmissionTable {
   id: string;
@@ -28,7 +33,7 @@ export class AdmissionsPage implements OnInit {
     columns: [
       { id: "id", text: "ID" },
       { id: "student", text: "Estudiante" },
-      { id: "createdAt", text: "Fecha" },
+      { id: "date", text: "Fecha" },
       { id: "status", text: "Estado De la Admision", type: "badge" },
       {
         id: "action",
@@ -49,7 +54,21 @@ export class AdmissionsPage implements OnInit {
   };
 
   admissions = new Array<AdmissionTable>();
-  constructor(private router: Router) {}
+  constructor(private afs: AngularFirestore, private router: Router, private app: AppService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.afs
+      .collection<Admission>("admissions")
+      .valueChanges()
+      .subscribe(async (admissions) => {
+        this.admissions = await Promise.all(
+          admissions.map<Promise<AdmissionTable>>(async (a) => ({
+            id: a.id,
+            date: a.date.toDate().toDateString(),
+            status: a.status,
+            student: (await this.app.getRef<User>(this.afs.doc(`users/${a.uid}`).ref)).displayName,
+          }))
+        );
+      });
+  }
 }

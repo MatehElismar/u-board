@@ -8,8 +8,10 @@ import { AlertController, ToastController } from "@ionic/angular";
 import { FormComponentBase } from "mateh-ng-m-validation";
 import { StudentRecord } from "src/app/models/student-record";
 import { AppService } from "src/app/services/app.service";
+import * as firebase from "firebase";
 import { AuthService } from "src/app/services/auth.service";
 import * as moment from "moment";
+import { Admission } from "src/app/models/admision";
 
 @Component({
   selector: "app-register",
@@ -160,6 +162,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
               gender: v.gender,
               names: v.names,
               lastnames: v.lastnames,
+              createdAt: firebase.default.firestore.FieldValue.serverTimestamp() as any,
               // address: {
               //   province: v.province,
               //   streetName: v.streetName,
@@ -169,35 +172,41 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
 
             try {
               await this.auth.localSignin(user.email, record.cedula);
+              const alert = await this.alertCtrl.create({
+                header: "Exito",
+                subHeader: "Verifique su cuenta",
+                message: "Hemos enviado un correo de verificacion a " + v.email,
+                buttons: ["Ok"],
+              });
+              alert.present();
+
+              //  save info into the student reacord
               await this.afs.doc<StudentRecord>(`student-records/${record.id}`).set(record);
+
+              // create an admission request.
+              const admissionID = this.app.generatePushID();
+              await this.afs.doc<Admission>(`admissions/${admissionID}`).set({
+                id: admissionID,
+                uid: record.uid,
+                status: "filling",
+                date: firebase.default.firestore.FieldValue.serverTimestamp() as any,
+              });
+
               const toast = await this.toastCtrl.create({
                 message: "Information saved!",
                 color: "dark",
               });
               toast.present();
 
-              this.nextStep(); //Go to next step
+              this.isPersonalInfoDone = true;
             } catch (err) {
               const alert = await this.app.createErrorAlert(err, ["Ok"]);
               alert.present();
             }
 
-            this.app.loading.dismiss();
-            const alert = await this.alertCtrl.create({
-              header: "Exito",
-              subHeader: "Verifique su cuenta",
-              message: "Hemos enviado un correo de verificacion a " + v.email,
-              buttons: ["Ok"],
-            });
-            alert.present();
-
-            this.isPersonalInfoDone = true;
-
             setTimeout(() => {
               this.stepper.next();
             }, 1);
-
-            // this.router.navigate(["/auth/login"]);
           },
           (err) => {
             this.app.loading.dismiss();
@@ -205,7 +214,8 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
             this.app.createErrorAlert(err, ["Ok"]).then((a) => {
               a.present();
             });
-          }
+          },
+          () => this.app.loading.dismiss()
         );
     } else {
       this.showErrors(this.admissionForm);
