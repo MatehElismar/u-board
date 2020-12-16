@@ -11,13 +11,14 @@ ion-toolbar {
 }
 
 ion-card {
-  height: 400px;
-  margin-top: 120px;
+  height: 430px;
+  margin-top: 100px;
+  border-radius: 20px;
 }
 
 ion-card-header {
   border-left: 5px solid #ffb700;
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: 600 !important;
 }
 
@@ -26,7 +27,7 @@ ion-card-header {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .example-full-width {
@@ -59,6 +60,6 @@ ion-avatar {
   height: 120px !important;
   border: 3px solid #ffb700;
   border-style: dashed;
-  margin-top: 60px;
+  margin-top: 40px;
   z-index: 5000 !important;
 }
