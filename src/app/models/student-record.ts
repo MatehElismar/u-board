@@ -1,11 +1,13 @@
 import { UAddress } from "./address.model";
 import { UDocument } from "./udocument";
+import * as firebase from "firebase";
 
 export interface StudentRecord {
   id?: string;
   uid?: string;
   names?: string;
   lastnames?: string;
+  createdAt: firebase.default.firestore.Timestamp;
   cedula: string;
   email: string;
   birthdate?: string;
