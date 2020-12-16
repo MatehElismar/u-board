@@ -4,7 +4,6 @@ ion-toolbar {
 }
 
 .title {
-  padding-left: 30px;
   padding-top: 15px;
   color: #ffb700;
   font-family: "Open Sans", sans-serif;
@@ -13,10 +12,6 @@ ion-toolbar {
 ion-card {
   min-height: 300px;
 }
-
-// ion-card-content ion-label {
-//     font-weight: 500 !important;
-// }
 
 ion-button {
   font-size: 12px !important;
@@ -36,4 +31,14 @@ ion-card img {
 
 .pdf {
   cursor: pointer;
+}
+
+.btn-submit ion-button {
+  font-size: 12px !important;
+  --border-radius: 15px !important;
+  width: 300px;
+}
+
+.btn-submit {
+  margin-top: 20px;
 }

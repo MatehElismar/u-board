@@ -21,5 +21,6 @@ export interface StudentRecord {
     FOTOS2X2: UDocument;
     VISA: UDocument;
     EXAMEN_ESPANOL: UDocument;
+    PASAPORTE:UDocument;
   };
 }
