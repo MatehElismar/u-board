@@ -14,12 +14,12 @@ const routes: Routes = [
   },
   {
     path: "admin",
-    // canActivateChild: [AuthGuard],
+    canActivateChild: [AuthGuard],
     loadChildren: () => import("./admin/admin.module").then((m) => m.AdminModule),
   },
   {
     path: "user",
-    // canActivateChild: [AuthGuard],
+    canActivateChild: [AuthGuard],
     loadChildren: () => import("./user/user.module").then((m) => m.UserModule),
   },
 ];
