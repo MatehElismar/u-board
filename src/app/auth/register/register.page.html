@@ -14,14 +14,16 @@
         </ion-card-header>
         <ion-card-content>
           <mat-horizontal-stepper class="mat-elevation-z4" labelPosition="bottom" linear #stepper>
-            <mat-step [stepControl]="admissionForm" [editable]="true" [completed]="isPersonalInfoDone">
+
+            <!-- PERSONAL FORM -->
+            <mat-step [stepControl]="admissionForm" [editable]="false" [completed]="isPersonalInfoDone">
               <form [formGroup]="admissionForm" class="ion-text-center">
-                <ng-template matStepLabel><strong>Personal Information</strong></ng-template>
+                <ng-template matStepLabel><strong>Información Personal</strong></ng-template>
 
                 <ion-row>
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Nombres</mat-label>
+                      <mat-label>NOMBRES</mat-label>
                       <input type="text" class="text-upperCase" matInput formControlName="names" />
                       <mat-error>{{formErrors["names"]}}</mat-error>
                     </mat-form-field>
@@ -29,7 +31,7 @@
 
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Apellidos</mat-label>
+                      <mat-label>APELLIDOS</mat-label>
                       <input type="text" class="text-upperCase" matInput formControlName="lastnames" />
                       <mat-error>{{formErrors["lastnames"]}}</mat-error>
                     </mat-form-field>
@@ -37,7 +39,7 @@
 
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Cédula</mat-label>
+                      <mat-label>CÉDULA</mat-label>
                       <input type="text" class="text-upperCase" matInput formControlName="cedula" />
                       <mat-error>{{formErrors["cedula"]}}</mat-error>
                     </mat-form-field>
@@ -45,30 +47,9 @@
 
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Correo Electronico</mat-label>
-                      <input type="text" class="text-upperCase" matInput formControlName="email" />
-                      <mat-error>{{formErrors["email"]}}</mat-error>
-                    </mat-form-field>
-                  </ion-col>
-
-                  <ion-col size="12" sizeMd="4">
-                    <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Numero de telefono</mat-label>
-                      <input type="text" class="text-upperCase" matInput formControlName="cellphone" />
-                      <mat-error>{{formErrors["cellphone"]}}</mat-error>
-                    </mat-form-field>
-                  </ion-col>
-
-                  <ion-col size="12" sizeMd="4">
-                    <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Fecha de nacimiento</mat-label>
-                      <input
-                        matInput
-                        [matDatepicker]="picker"
-                        formControlName="birthdate"
-                        placeholder="Fecha de Nacimiento"
-                        required
-                      />
+                      <mat-label>FECHA DE NACIMIENTO</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="birthdate"
+                        placeholder="Fecha de Nacimiento" />
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker disabled="false"></mat-datepicker>
                       <mat-error>{{formErrors["birthdate"]}}</mat-error>
@@ -77,20 +58,414 @@
 
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
-                      <mat-label>Género</mat-label>
-                      <mat-select formControlName="gender" style="font-size: 14px">
+                      <mat-label>GÉNERO</mat-label>
+                      <mat-select formControlName="gender">
                         <mat-option value="MASCULINO">MASCULINO</mat-option>
                         <mat-option value="FEMENINO">FEMENINO</mat-option>
                       </mat-select>
                       <mat-error>{{formErrors["gender"]}}</mat-error>
                     </mat-form-field>
                   </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>CORREO ELECTRÓNICO</mat-label>
+                      <input type="email" matInput formControlName="email" />
+                      <mat-error>{{formErrors["email"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>CELULAR</mat-label>
+                      <input type="text" matInput formControlName="cellphone" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TELÉFONO</mat-label>
+                      <input type="text" matInput formControlName="telephone" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>CALLE</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="streetName" />
+                      <mat-error>{{formErrors["streetName"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label># DE LA CASA</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="streetNumber" />
+                      <mat-error>{{formErrors["streetNumber"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>SECTOR</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="neighborhood" />
+                      <mat-error>{{formErrors["neighborhood"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>MUNICIPIO</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="municipality" />
+                      <mat-error>{{formErrors["municipality"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>PROVINCIA</mat-label>
+                      <mat-select formControlName="province">
+                        <mat-option value="AZUA">AZUA</mat-option>
+                        <mat-option value="BAHORUCO">BAHORUCO</mat-option>
+                        <mat-option value="BARAHONA">BARAHONA</mat-option>
+                        <mat-option value="DAJABON">DAJABON</mat-option>
+                        <mat-option value="DUARTE">DUARTE</mat-option>
+                        <mat-option value="ELIAS PIÑA">ELIAS PIÑA</mat-option>
+                        <mat-option value="EL SEIBO">EL SEIBO</mat-option>
+                        <mat-option value="ESPAILLAT">ESPAILLAT</mat-option>
+                        <mat-option value="HATO MAYOR">HATO MAYOR</mat-option>
+                        <mat-option value="HERMANAS MIRABAL">HERMANAS MIRABAL</mat-option>
+                        <mat-option value="INDEPENDENCIA">INDEPENDENCIA</mat-option>
+                        <mat-option value="LA ALTAGRACIA">LA ALTAGRACIA</mat-option>
+                        <mat-option value="LA ROMANA">LA ROMANA</mat-option>
+                        <mat-option value="LA VEGA">LA VEGA</mat-option>
+                        <mat-option value="MARIA TRINIDAD SANCHEZ">MARIA TRINIDAD SANCHEZ</mat-option>
+                        <mat-option value="MONSEÑOR NOUEL">MONSEÑOR NOUEL</mat-option>
+                        <mat-option value="MONTE CRISTI">MONTE CRISTI</mat-option>
+                        <mat-option value="MONTE PLATA">MONTE PLATA</mat-option>
+                        <mat-option value="PEDERNALES">PEDERNALES</mat-option>
+                        <mat-option value="PERAVIA">PERAVIA</mat-option>
+                        <mat-option value="PUERTO PLATA">PUERTO PLATA</mat-option>
+                        <mat-option value="SAMANA">SAMANA</mat-option>
+                        <mat-option value="SANCHEZ RAMIREZ">SANCHEZ RAMIREZ</mat-option>
+                        <mat-option value="SAN CRISTOBAL">SAN CRISTOBAL</mat-option>
+                        <mat-option value="SAN JOSE DE OCOA">SAN JOSE DE OCOA</mat-option>
+                        <mat-option value="SAN JUAN">SAN JUAN</mat-option>
+                        <mat-option value="SAN PEDRO DE MACORIS">SAN PEDRO DE MACORIS</mat-option>
+                        <mat-option value="SANTIAGO">SANTIAGO</mat-option>
+                        <mat-option value="SANTIAGO RODRIGUEZ">SANTIAGO RODRIGUEZ</mat-option>
+                        <mat-option value="SANTO DOMINGO">SANTO DOMINGO</mat-option>
+                        <mat-option value="VALVERDE">VALVERDE</mat-option>
+                      </mat-select>
+                      <mat-error>{{formErrors["province"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>NACIONALIDAD</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="nationality" />
+                      <mat-error>{{formErrors["nationality"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>RELIGIÓN</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="religion" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>ESTADO CIVIL</mat-label>
+                      <mat-select formControlName="civil_status">
+                        <mat-option value="CASADO(A)">CASADO(A)</mat-option>
+                        <mat-option value="DIVORCIADO(A)">DIVORCIADO(A)</mat-option>
+                        <mat-option value="SOLTERO(A)">SOLTERO(A)</mat-option>
+                        <mat-option value="UNIÓN LIBRE">UNIÓN LIBRE</mat-option>
+                        <mat-option value="VIUDO(A)">VIUDO(A)</mat-option>
+                      </mat-select>
+                      <mat-error>{{formErrors["civil_status"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
                 </ion-row>
-                <ion-row>
-                  <ion-button (click)="save()">Next</ion-button>
+
+                <ion-row class="centerRow">
+                  <ion-button color="primary" (click)="admissionInfoDone()">Next</ion-button>
                 </ion-row>
+
               </form>
             </mat-step>
+            <!-- /PERSONAL FORM -->
+
+            <!-- ACADEMIC FORM -->
+            <mat-step [stepControl]="academicForm" [editable]="true" [completed]="isAcademicInfoDone">
+              <form [formGroup]="academicForm" class="ion-text-center">
+                <ng-template matStepLabel><strong>Información Académica</strong></ng-template>
+
+                <ion-row>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>ESTUDIOS A REALIZAR</mat-label>
+                      <mat-select formControlName="study_type">
+                        <mat-option value="LICENCIATURA">LICENCIATURA</mat-option>
+                        <mat-option value="INGENIERÍA">INGENIERÍA</mat-option>
+                        <mat-option value="POSGRADO">POSGRADO</mat-option>
+                      </mat-select>
+                      <mat-error>{{formErrors["study_type"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>CARRERA A ESTUDIAR</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="career" />
+                      <mat-error>{{formErrors["career"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                <ion-col size="12" sizeMd="4">
+                  <mat-form-field class="pr-20 pb-16">
+                    <mat-label>REALIZÉ MI BACHILLER EN:</mat-label>
+                    <input type="text" class="text-upperCase" matInput formControlName="highSchool_name" />
+                    <mat-error>{{formErrors["highSchool_name"]}}</mat-error>
+                  </mat-form-field>
+                </ion-col>
+
+                <ion-col size="12" sizeMd="4">
+                  <mat-form-field class="pr-20 pb-16">
+                    <mat-label>SI APLICÓ PARA MAESTRÍA, ¿QUÉ CARRERA ESTUDIÓ?:</mat-label>
+                    <input type="text" class="text-upperCase" matInput formControlName="grade_career" />
+                  </mat-form-field>
+                </ion-col>
+
+                <ion-col size="12" sizeMd="4">
+                  <mat-form-field class="pr-20 pb-16">
+                    <mat-label>SI ESTUVO EN OTRA UNIVERSIDAD, FAVOR INDIQUE EL NOMBRE:</mat-label>
+                    <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_name" />
+                  </mat-form-field>
+                </ion-col>
+
+                <ion-col size="12" sizeMd="4">
+                  <mat-form-field class="pr-20 pb-16">
+                    <mat-label>FAVOR INDIQUE LA CARRERA:</mat-label>
+                    <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_career" />
+                  </mat-form-field>
+                </ion-col>
+
+              </ion-row>
+
+                <ion-row class="centerRow">
+                  <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
+                  <ion-button color="primary" (click)="academicInfoDone()">Next</ion-button>
+                </ion-row>
+
+              </form>
+            </mat-step>
+            <!-- /ACADEMIC FORM -->
+
+            <!-- MEDICAL FORM -->
+            <mat-step [stepControl]="medicalForm" [editable]="true" [completed]="isMedicalInfoDone">
+              <form [formGroup]="medicalForm" class="ion-text-center">
+                <ng-template matStepLabel><strong>Información Médica</strong></ng-template>
+
+                <ion-row>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TIPO DE SANGRE</mat-label>
+                      <mat-select formControlName="blood_type" style="font-size: 14px">
+                        <mat-option value="A+">A+</mat-option>
+                        <mat-option value="AB+">AB+</mat-option>
+                        <mat-option value="B+">B+</mat-option>
+                        <mat-option value="O+">O+</mat-option>
+                        <mat-option value="A-">A-</mat-option>
+                        <mat-option value="AB-">AB-</mat-option>
+                        <mat-option value="B-">B-</mat-option>
+                        <mat-option value="O-">O-</mat-option>
+                      </mat-select>
+                      <mat-error>{{formErrors["blood_type"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>SOY ALÉRGICO A:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="isAlergic" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>PADEZCO DE ESTA ENFERMEDAD:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="disease" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TRATAMIENTO O MEDICAMENTO QUE ESTOY TOMANDO:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="disease" />
+                    </mat-form-field>
+                  </ion-col>
+
+
+                </ion-row>
+
+                <ion-row class="centerRow">
+                  <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
+                  <ion-button color="primary" (click)="academicInfoDone()">Next</ion-button>
+                </ion-row>
+
+              </form>
+            </mat-step>
+            <!-- /MEDICAL FORM -->
+
+            <!-- FAMILY FORM -->
+            <mat-step [stepControl]="familyForm" [editable]="true" [completed]="isFamilyInfoDone">
+              <form [formGroup]="familyForm" class="ion-text-center">
+                <ng-template matStepLabel><strong>Información Familiar</strong></ng-template>
+
+                <ion-label class="boldText" color="danger">PADRE</ion-label>
+
+                <ion-row>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>NOMBRES</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="father_names" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>APELLIDOS</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="father_lastnames" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TELÉFONO/CELULAR</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="father_telephone" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>OCUPACIÓN</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="father_occupation" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>ESTADO CIVIL</mat-label>
+                      <mat-select formControlName="father_civil_status">
+                        <mat-option value="CASADO">CASADO</mat-option>
+                        <mat-option value="DIVORCIADO">DIVORCIADO</mat-option>
+                        <mat-option value="SOLTERO">SOLTERO</mat-option>
+                        <mat-option value="UNIÓN LIBRE">UNIÓN LIBRE</mat-option>
+                        <mat-option value="VIUDO">VIUDO</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+
+                </ion-row>
+
+                <ion-label class="boldText" color="danger">MADRE</ion-label>
+
+                <ion-row>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>NOMBRES</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="mother_names" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>APELLIDOS</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="mother_lastnames" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TELÉFONO/CELULAR</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="mother_telephone" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>OCUPACIÓN</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="mother_occupation" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>ESTADO CIVIL</mat-label>
+                      <mat-select formControlName="mother_civil_status">
+                        <mat-option value="CASADA">CASADA</mat-option>
+                        <mat-option value="DIVORCIADA">DIVORCIADA</mat-option>
+                        <mat-option value="SOLTERA">SOLTERA</mat-option>
+                        <mat-option value="UNIÓN LIBRE">UNIÓN LIBRE</mat-option>
+                        <mat-option value="VIUDA">VIUDA</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </ion-col>
+
+                </ion-row>
+
+                <ion-label class="boldText" color="danger">ESPOSO / ESPOSA</ion-label>
+
+                <ion-row>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>NOMBRES</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="wife_or_husband_names" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>APELLIDOS</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="wife_or_husband_lastnames" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>TELÉFONO/CELULAR</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="wife_or_husband_telephone" />
+                    </mat-form-field>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>OCUPACIÓN</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="wife_or_husband_occupation" />
+                    </mat-form-field>
+                  </ion-col>
+
+                </ion-row>
+
+                <ion-row class="centerRow">
+                  <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
+                  <ion-button color="primary" (click)="familyInfoDone()">Next</ion-button>
+                </ion-row>
+
+              </form>
+            </mat-step>
+            <!-- /FAMILY FORM -->
+
           </mat-horizontal-stepper>
         </ion-card-content>
       </ion-card>
