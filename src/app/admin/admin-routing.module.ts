@@ -6,6 +6,10 @@ const routes: Routes = [
     path: "admissions",
     loadChildren: () => import("./admissions/admissions.module").then((m) => m.AdmissionsPageModule),
   },
+  {
+    path: 'student-record',
+    loadChildren: () => import('./student-record/student-record.module').then( m => m.StudentRecordPageModule)
+  },
 ];
 
 @NgModule({

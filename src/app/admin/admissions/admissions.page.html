@@ -4,11 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="10" offset-md="1">
-        <data-table #dataTable [data]="admissions" [options]="dtOptions"></data-table>
+      <ion-col size="12" size-md="8" offset-md="2">
+        <data-table #dataTable [data]="admissions" [options]="dtOptions" class="mat-elevation-z2"></data-table>
       </ion-col>
       <ion-col size="6"></ion-col>
     </ion-row>
