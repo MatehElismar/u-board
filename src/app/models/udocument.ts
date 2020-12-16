@@ -1,5 +1,5 @@
 export interface UDocument {
-  urls?: string[];
+  url?: string;
   status?: Status;
   message?: string;
 }

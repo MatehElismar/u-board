@@ -5,10 +5,9 @@
 </ion-header>
 
 <ion-content>
-
   <div class="bg">
     <ion-avatar>
-      <img src="https://i.pinimg.com/736x/16/5c/90/165c9078c5099ba03ec3bec0e4518a14.jpg">
+      <img src="https://i.pinimg.com/736x/16/5c/90/165c9078c5099ba03ec3bec0e4518a14.jpg" />
     </ion-avatar>
   </div>
 
@@ -19,36 +18,33 @@
           <ion-card-title>Login</ion-card-title>
         </ion-card-header>
         <ion-card-content> 
-          <form class="example-form">
+          <form [formGroup]="loginForm" class="example-form">
             <ion-item color="light" lines="none">
               <ion-icon slot="start" name="mail"></ion-icon>
               <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="2017-0319@uboard.com">
+                <input formControlName="email" matInput placeholder="2017-0319@uboard.com" />
               </mat-form-field>
             </ion-item>
 
-            <ion-item color="light" lines="none">
+            <ion-item [hidden]="recover"  color="light" lines="none">
               <ion-icon slot="start" name="key"></ion-icon>
               <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="xxxxxxxx">
+                <input formControlName="password" type="password" matInput placeholder="xxxxxxxx" />
               </mat-form-field>
             </ion-item>
 
-            <div class="forgot ion-text-right">
+            <div (click)="recover = true" class="forgot ion-text-right">
               <ion-label>¿Forgot Password?</ion-label>
             </div>
           </form>
 
           <div class="btn ion-text-center">
-            <ion-button>
-              Enter
-            </ion-button>
+            <ion-button (click)="logIn()"> Enter </ion-button>
           </div>
         </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
-
 </ion-content>

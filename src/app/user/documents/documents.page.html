@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Documents</ion-title>
+    <ion-title>Documents of {{studentRecord?.names | titlecase}} {{studentRecord?.lastnames | titlecase}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -131,8 +131,10 @@
         <ion-col size="12" sizeMd="3">
           <ion-card color="light">
             <div class="image">
-              <img *ngIf="!getFileUrl('FOTOS2X2')" src="../../../assets/ilustrations/waiting.svg" alt="" />
-              [img]="getFileUrl('FOTOS2X2')"
+              <img
+                [src]=" documents['FOTOS2X2']?.url  ? documents['FOTOS2X2']?.url : studentRecord?.documents?.FOTOS2X2?.url ? studentRecord?.documents?.FOTOS2X2?.url :'../../../assets/ilustrations/waiting.svg'"
+                alt=""
+              />
             </div>
             <ion-card-content class="ion-text-center">
               <ion-label> Foto 2x2 Reciente </ion-label>
@@ -142,7 +144,15 @@
                 Foto subida
               </ion-label> -->
               <div class="btn">
-                <ion-button (click)="uploadFile()"> Upload </ion-button>
+                <ion-button
+                  [color]="documents['FOTOS2X2']?.url? 'primary' : 'terciary'"
+                  (click)="documents['FOTOS2X2']?.url? sendFiles('FOTOS2X2') :  uploadFile('FOTOS2X2')"
+                  >{{documents['FOTOS2X2']?.url ? "Send" : studentRecord?.documents?.FOTOS2X2?.url ? "Actualizar" :
+                  "Upload"}}
+                </ion-button>
+                <ion-button color="danger" *ngIf="documents['FOTOS2X2']?.url" (click)="cancelUpload('FOTOS2X2')"
+                  >Cancelar
+                </ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -187,4 +197,4 @@
     </ion-col>
   </ion-row>
 </ion-content>
-<input #upload [hidden]="true" type="file" name="" id="file" />
+<input #upload (change)="onFileChanged($event)" [hidden]="true" type="file" name="" id="file" multiple />
