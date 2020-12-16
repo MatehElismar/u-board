@@ -49,3 +49,16 @@ ion-button {
   --border-radius: 15px !important;
   width: 150px;
 }
+
+mat-label {
+  font-size: 14px;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.centerRow {
+  display: flex;
+  justify-content: center;
+}
