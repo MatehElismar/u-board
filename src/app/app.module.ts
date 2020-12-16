@@ -32,15 +32,15 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {
-      provide: SETTINGS,
-      useValue: environment.production
-        ? undefined
-        : {
-            host: "localhost:8080",
-            ssl: false,
-          },
-    },
+    // {
+    //   provide: SETTINGS,
+    //   useValue: environment.production
+    //     ? undefined
+    //     : {
+    //         host: "localhost:8080",
+    //         ssl: false,
+    //       },
+    // },
   ],
   bootstrap: [AppComponent],
 })
