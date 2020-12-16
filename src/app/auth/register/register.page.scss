@@ -11,8 +11,8 @@ ion-toolbar {
 }
 
 ion-card {
-  height: 400px;
-  margin-top: 70px;
+  height: auto;
+  margin-top: 50px;
 }
 
 ion-card-header {
@@ -21,14 +21,31 @@ ion-card-header {
   font-weight: 600 !important;
 }
 
+ion-card-content {
+  padding: 7px !important;
+  margin-top: 10px;
+}
+
 .pr-20 {
   padding-right: 20px;
+  width: 100%;
 }
 
 .pb-16 {
   padding-bottom: 16px;
 }
 
-.text-upperCase{
-    text-transform: uppercase;
+.text-upperCase {
+  text-transform: uppercase;
+}
+
+mat-horizontal-stepper {
+  background-color: #f4f5f8;
+}
+
+ion-button {
+  font-size: 12px !important;
+  --background: #ffb700;
+  --border-radius: 15px !important;
+  width: 150px;
 }
