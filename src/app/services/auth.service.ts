@@ -51,13 +51,11 @@ export class AuthService {
     const callable = this.fireFunctions.httpsCallable("createUser");
     return callable({ ...user, ...(password ? { password } : {}) }).pipe(
       tap((userRecord) => {
-        if (!userRecord.errorInfo) {
-          this.updateUserData({ ...userRecord, cellphone: user.cellphone }, user.role, true).then(() => {
-            // if (user.role !== "student") {
-            this.sendPasswordResetEmail(userRecord.email);
-            // }
-          });
-        }
+        this.updateUserData({ ...userRecord, cellphone: user.cellphone }, user.role, true).then(() => {
+          // if (user.role !== "student") {
+          this.sendPasswordResetEmail(userRecord.email);
+          // }
+        });
       })
     );
   }
@@ -66,9 +64,7 @@ export class AuthService {
     const callable = this.fireFunctions.httpsCallable("enableUser");
     return callable({ uid }).pipe(
       tap((userRecord) => {
-        if (!userRecord.errorInfo) {
-          this.updateUserData(userRecord, role).then(() => {});
-        }
+        this.updateUserData(userRecord, role).then(() => {});
       })
     );
   }

@@ -7,6 +7,7 @@ export interface StudentRecord {
   names?: string;
   lastnames?: string;
   cedula: string;
+  email: string;
   birthdate?: string;
   gender?: string;
   career?: string;
@@ -14,11 +15,11 @@ export interface StudentRecord {
   documents?: {
     ACTA_NACIMIENTO: UDocument;
     CERTIFICACION_BACHILLERATO: UDocument;
-    RECORD_BACHILLERATO:UDocument;
-    RECORD_INSTITUCION:UDocument;
-    CEDULA:UDocument;
-    FOTOS2X2:UDocument;
-    VISA:UDocument;
-    EXAMEN_ESPANOL:UDocument;
+    RECORD_BACHILLERATO: UDocument;
+    RECORD_INSTITUCION: UDocument;
+    CEDULA: UDocument;
+    FOTOS2X2: UDocument;
+    VISA: UDocument;
+    EXAMEN_ESPANOL: UDocument;
   };
 }
