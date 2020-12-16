@@ -10,70 +10,84 @@
     <ion-col size="12" sizeMd="10" offsetMd="1">
       <ion-card>
         <ion-card-header>
-          <ion-card-title> Formulario De Admision </ion-card-title>
+          <ion-card-title> Admission Form</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <mat-horizontal-stepper class="mat-elevation-z4" labelPosition="bottom" linear #stepper>
             <mat-step [stepControl]="admissionForm" [editable]="true" [completed]="isPersonalInfoDone">
               <form [formGroup]="admissionForm" class="ion-text-center">
-                <ng-template matStepLabel><strong>Información Personal</strong></ng-template>
+                <ng-template matStepLabel><strong>Personal Information</strong></ng-template>
 
                 <ion-row>
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Nombres</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="names" />
-                    <mat-error>{{formErrors["names"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Nombres</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="names" />
+                      <mat-error>{{formErrors["names"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Apellidos</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="lastnames" />
-                    <mat-error>{{formErrors["lastnames"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Apellidos</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="lastnames" />
+                      <mat-error>{{formErrors["lastnames"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Correo Electronico</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="email" />
-                    <mat-error>{{formErrors["email"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Cédula</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="cedula" />
+                      <mat-error>{{formErrors["cedula"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Cédula</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="cedula" />
-                    <mat-error>{{formErrors["cedula"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Correo Electronico</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="email" />
+                      <mat-error>{{formErrors["email"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Numero de telefono</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="cellphone" />
-                    <mat-error>{{formErrors["cellphone"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Numero de telefono</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="cellphone" />
+                      <mat-error>{{formErrors["cellphone"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Fecha de nacimiento</mat-label>
-                    <input
-                      matInput
-                      [matDatepicker]="picker"
-                      formControlName="birthdate"
-                      placeholder="Fecha de Nacimiento"
-                      required
-                    />
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker disabled="false"></mat-datepicker>
-                    <mat-error>{{formErrors["birthdate"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Fecha de nacimiento</mat-label>
+                      <input
+                        matInput
+                        [matDatepicker]="picker"
+                        formControlName="birthdate"
+                        placeholder="Fecha de Nacimiento"
+                        required
+                      />
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker disabled="false"></mat-datepicker>
+                      <mat-error>{{formErrors["birthdate"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>Género</mat-label>
-                    <mat-select formControlName="gender" style="font-size: 14px">
-                      <mat-option value="MASCULINO">MASCULINO</mat-option>
-                      <mat-option value="FEMENINO">FEMENINO</mat-option>
-                    </mat-select>
-                    <mat-error>{{formErrors["gender"]}}</mat-error>
-                  </mat-form-field>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>Género</mat-label>
+                      <mat-select formControlName="gender" style="font-size: 14px">
+                        <mat-option value="MASCULINO">MASCULINO</mat-option>
+                        <mat-option value="FEMENINO">FEMENINO</mat-option>
+                      </mat-select>
+                      <mat-error>{{formErrors["gender"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-button (click)="save()">Siguiente</ion-button>
+                  <ion-button (click)="save()">Next</ion-button>
                 </ion-row>
               </form>
             </mat-step>
