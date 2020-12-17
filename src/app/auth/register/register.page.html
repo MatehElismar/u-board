@@ -1,6 +1,8 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>U Board | Register</ion-title>
+
+    <ion-label class="ion-float-right"> {{user?.displayName}} </ion-label>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +16,6 @@
         </ion-card-header>
         <ion-card-content>
           <mat-horizontal-stepper class="mat-elevation-z4" labelPosition="bottom" linear #stepper>
-
             <!-- PERSONAL FORM -->
             <mat-step [stepControl]="admissionForm" [editable]="false" [completed]="isPersonalInfoDone">
               <form [formGroup]="admissionForm" class="ion-text-center">
@@ -48,8 +49,12 @@
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>FECHA DE NACIMIENTO</mat-label>
-                      <input matInput [matDatepicker]="picker" formControlName="birthdate"
-                        placeholder="Fecha de Nacimiento" />
+                      <input
+                        matInput
+                        [matDatepicker]="picker"
+                        formControlName="birthdate"
+                        placeholder="Fecha de Nacimiento"
+                      />
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker disabled="false"></mat-datepicker>
                       <mat-error>{{formErrors["birthdate"]}}</mat-error>
@@ -189,13 +194,11 @@
                       <mat-error>{{formErrors["civil_status"]}}</mat-error>
                     </mat-form-field>
                   </ion-col>
-
                 </ion-row>
 
                 <ion-row class="centerRow">
                   <ion-button color="primary" (click)="admissionInfoDone()">Next</ion-button>
                 </ion-row>
-
               </form>
             </mat-step>
             <!-- /PERSONAL FORM -->
@@ -206,7 +209,6 @@
                 <ng-template matStepLabel><strong>Información Académica</strong></ng-template>
 
                 <ion-row>
-
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>ESTUDIOS A REALIZAR</mat-label>
@@ -227,42 +229,40 @@
                     </mat-form-field>
                   </ion-col>
 
-                <ion-col size="12" sizeMd="4">
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>REALIZÉ MI BACHILLER EN:</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="highSchool_name" />
-                    <mat-error>{{formErrors["highSchool_name"]}}</mat-error>
-                  </mat-form-field>
-                </ion-col>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>REALIZÉ MI BACHILLER EN:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="highSchool_name" />
+                      <mat-error>{{formErrors["highSchool_name"]}}</mat-error>
+                    </mat-form-field>
+                  </ion-col>
 
-                <ion-col size="12" sizeMd="4">
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>SI APLICÓ PARA MAESTRÍA, ¿QUÉ CARRERA ESTUDIÓ?:</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="grade_career" />
-                  </mat-form-field>
-                </ion-col>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>SI APLICÓ PARA MAESTRÍA, ¿QUÉ CARRERA ESTUDIÓ?:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="grade_career" />
+                    </mat-form-field>
+                  </ion-col>
 
-                <ion-col size="12" sizeMd="4">
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>SI ESTUVO EN OTRA UNIVERSIDAD, FAVOR INDIQUE EL NOMBRE:</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_name" />
-                  </mat-form-field>
-                </ion-col>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>SI ESTUVO EN OTRA UNIVERSIDAD, FAVOR INDIQUE EL NOMBRE:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_name" />
+                    </mat-form-field>
+                  </ion-col>
 
-                <ion-col size="12" sizeMd="4">
-                  <mat-form-field class="pr-20 pb-16">
-                    <mat-label>FAVOR INDIQUE LA CARRERA:</mat-label>
-                    <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_career" />
-                  </mat-form-field>
-                </ion-col>
-
-              </ion-row>
+                  <ion-col size="12" sizeMd="4">
+                    <mat-form-field class="pr-20 pb-16">
+                      <mat-label>FAVOR INDIQUE LA CARRERA:</mat-label>
+                      <input type="text" class="text-upperCase" matInput formControlName="previousUniversity_career" />
+                    </mat-form-field>
+                  </ion-col>
+                </ion-row>
 
                 <ion-row class="centerRow">
                   <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
                   <ion-button color="primary" (click)="academicInfoDone()">Next</ion-button>
                 </ion-row>
-
               </form>
             </mat-step>
             <!-- /ACADEMIC FORM -->
@@ -273,7 +273,6 @@
                 <ng-template matStepLabel><strong>Información Médica</strong></ng-template>
 
                 <ion-row>
-
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>TIPO DE SANGRE</mat-label>
@@ -311,15 +310,12 @@
                       <input type="text" class="text-upperCase" matInput formControlName="disease" />
                     </mat-form-field>
                   </ion-col>
-
-
                 </ion-row>
 
                 <ion-row class="centerRow">
                   <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
-                  <ion-button color="primary" (click)="academicInfoDone()">Next</ion-button>
+                  <ion-button color="primary" (click)="medicalInfoDone()">Next</ion-button>
                 </ion-row>
-
               </form>
             </mat-step>
             <!-- /MEDICAL FORM -->
@@ -332,7 +328,6 @@
                 <ion-label class="boldText" color="danger">PADRE</ion-label>
 
                 <ion-row>
-
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>NOMBRES</mat-label>
@@ -373,13 +368,11 @@
                       </mat-select>
                     </mat-form-field>
                   </ion-col>
-
                 </ion-row>
 
                 <ion-label class="boldText" color="danger">MADRE</ion-label>
 
                 <ion-row>
-
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>NOMBRES</mat-label>
@@ -420,13 +413,11 @@
                       </mat-select>
                     </mat-form-field>
                   </ion-col>
-
                 </ion-row>
 
                 <ion-label class="boldText" color="danger">ESPOSO / ESPOSA</ion-label>
 
                 <ion-row>
-
                   <ion-col size="12" sizeMd="4">
                     <mat-form-field class="pr-20 pb-16">
                       <mat-label>NOMBRES</mat-label>
@@ -454,18 +445,15 @@
                       <input type="text" class="text-upperCase" matInput formControlName="wife_or_husband_occupation" />
                     </mat-form-field>
                   </ion-col>
-
                 </ion-row>
 
                 <ion-row class="centerRow">
                   <ion-button color="primary" matStepperPrevious type="button">Previous</ion-button>
                   <ion-button color="primary" (click)="familyInfoDone()">Next</ion-button>
                 </ion-row>
-
               </form>
             </mat-step>
             <!-- /FAMILY FORM -->
-
           </mat-horizontal-stepper>
         </ion-card-content>
       </ion-card>
