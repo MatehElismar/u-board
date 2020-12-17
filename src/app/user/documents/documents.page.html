@@ -20,7 +20,7 @@
             <div class="image">
               <!-- NO FILE  -->
               <img
-              [src]="documents['ACTA_NACIMIENTO']?.url ?  documents['ACTA_NACIMIENTO']?.url : studentRecord?.documents?.ACTA_NACIMIENTO?.url ?  studentRecord?.documents?.ACTA_NACIMIENTO?.url :'../../../assets/ilustrations/waiting.svg'"
+              [src]="documents['ACTA_NACIMIENTO']?.url ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png' : studentRecord?.documents?.ACTA_NACIMIENTO?.url ?  studentRecord?.documents?.ACTA_NACIMIENTO?.url :'../../../assets/ilustrations/waiting.svg'"
               alt=""
             />
               <!-- PDF  -->
@@ -29,8 +29,10 @@
             <ion-card-content class="ion-text-center">
               <ion-label> Acta de nacimiento legalizada </ion-label>
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
-                class="bu"
                   [color]="documents['ACTA_NACIMIENTO']?.url? 'success' : 'primary'"
                   (click)="documents['ACTA_NACIMIENTO']?.url? sendFiles('ACTA_NACIMIENTO') :  uploadFile('ACTA_NACIMIENTO')"
                   >{{documents['ACTA_NACIMIENTO']?.url ? "Send" : studentRecord?.documents?.ACTA_NACIMIENTO?.url ? "Actualizar" :
@@ -47,7 +49,7 @@
           <ion-card color="light">
             <div class="image">
               <img
-              [src]=" documents['RECORD_BACHILLERATO']?.url  ? documents['RECORD_BACHILLERATO']?.url : studentRecord?.documents?.RECORD_BACHILLERATO?.url ? studentRecord?.documents?.RECORD_BACHILLERATO?.url :'../../../assets/ilustrations/waiting.svg'"
+              [src]=" documents['RECORD_BACHILLERATO']?.url  ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png'  : studentRecord?.documents?.RECORD_BACHILLERATO?.url ? studentRecord?.documents?.RECORD_BACHILLERATO?.url :'../../../assets/ilustrations/waiting.svg'"
               alt=""
             />
             </div>
@@ -55,6 +57,9 @@
               <ion-label> Records de notas de bachillerato  </ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['RECORD_BACHILLERATO']?.url? 'success' : 'primary'"
@@ -73,7 +78,7 @@
           <ion-card color="light">
             <div class="image">
               <img
-              [src]=" documents['CERTIFICACION_BACHILLERATO']?.url  ? documents['CERTIFICACION_BACHILLERATO']?.url : studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url ? studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url :'../../../assets/ilustrations/waiting.svg'"
+              [src]=" documents['CERTIFICACION_BACHILLERATO']?.url  ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png'  : studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url ? studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url :'../../../assets/ilustrations/waiting.svg'"
               alt=""
             />
             </div>
@@ -81,6 +86,9 @@
               <ion-label>Certificacion oficial de bachillerato</ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['CERTIFICACION_BACHILLERATO']?.url? 'success' : 'primary'"
@@ -99,7 +107,7 @@
           <ion-card color="light">
             <div class="image">
               <img
-              [src]=" documents['CEDULA']?.url  ? documents['CEDULA']?.url : studentRecord?.documents?.CEDULA?.url ? studentRecord?.documents?.CEDULA?.url :'../../../assets/ilustrations/waiting.svg'"
+              [src]=" documents['CEDULA']?.url  ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png'  : studentRecord?.documents?.CEDULA?.url ? studentRecord?.documents?.CEDULA?.url :'../../../assets/ilustrations/waiting.svg'"
               alt=""
             />
             </div>
@@ -107,6 +115,9 @@
               <ion-label> Cedula de identidad y electoral </ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['CEDULA']?.url? 'success' : 'primary'"
@@ -125,7 +136,7 @@
           <ion-card color="light">
             <div class="image">
               <img
-              [src]=" documents['PASAPORTE']?.url  ? documents['PASAPORTE']?.url : studentRecord?.documents?.PASAPORTE?.url ? studentRecord?.documents?.PASAPORTE?.url :'../../../assets/ilustrations/waiting.svg'"
+              [src]=" documents['PASAPORTE']?.url  ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png'  : studentRecord?.documents?.PASAPORTE?.url ? studentRecord?.documents?.PASAPORTE?.url :'../../../assets/ilustrations/waiting.svg'"
               alt=""
             />
             </div>
@@ -133,6 +144,9 @@
               <ion-label> Copia de pasaporte </ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['PASAPORTE']?.url? 'success' : 'primary'"
@@ -159,6 +173,9 @@
               <ion-label> Foto 2x2 Reciente </ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['FOTOS2X2']?.url? 'success' : 'primary'"
@@ -177,7 +194,7 @@
           <ion-card color="light">
             <div class="image">
               <img
-                [src]=" documents['VISA']?.url  ? documents['VISA']?.url : studentRecord?.documents?.VISA?.url ? studentRecord?.documents?.VISA?.url :'../../../assets/ilustrations/waiting.svg'"
+                [src]=" documents['VISA']?.url ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png' : studentRecord?.documents?.VISA?.url ? studentRecord?.documents?.VISA?.url :'../../../assets/ilustrations/waiting.svg'"
                 alt=""
               />
             </div>
@@ -186,6 +203,9 @@
 
              
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['VISA']?.url? 'success' : 'primary'"
@@ -204,14 +224,17 @@
           <ion-card color="light">
             <div class="image">
               <img
-                [src]=" documents['EXAMEN_ESPANOL']?.url  ? documents['EXAMEN_ESPANOL']?.url : studentRecord?.documents?.EXAMEN_ESPANOL?.url ? studentRecord?.documents?.EXAMEN_ESPANOL?.url :'../../../assets/ilustrations/waiting.svg'"
+                [src]=" documents['EXAMEN_ESPANOL']?.url  ? 'https://www.dvs.com.ar/wp-content/uploads/2017/10/icono-pdf.png'  : studentRecord?.documents?.EXAMEN_ESPANOL?.url ? studentRecord?.documents?.EXAMEN_ESPANOL?.url :'../../../assets/ilustrations/waiting.svg'"
                 alt=""
               />
             </div>
             <ion-card-content class="ion-text-center">
-              <ion-label> Examen de español </ion-label>
+              <ion-label> Examen de Español </ion-label>
 
               <div class="btn">
+                <ion-button class="bu" color="warning">
+                  No adquirido
+                </ion-button>
                 <ion-button
                 class="bu"
                   [color]="documents['EXAMEN_ESPANOL']?.url? 'success' : 'primary'"

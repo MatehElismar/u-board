@@ -65,3 +65,13 @@ ion-avatar {
 .family-info ion-col {
   height: 60px;
 }
+
+ion-card {
+  padding: 5px;
+}
+
+.btn-actions ion-button {
+  font-size: 12px !important;
+  // --background: #ffb700;
+  --border-radius: 15px !important;
+}
