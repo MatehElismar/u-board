@@ -252,12 +252,10 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
 
   admissionInfoDone() {
     this.admissionForm.get("birthdate").enable();
-    const myBdate = moment(this.admissionForm.value.birthdate).toLocaleString();
-    //this.admissionForm.get('birthdate').setValue(myBdate);
-
+    const myBdate = moment(this.admissionForm.value.birthdate).valueOf();
     const myAdmForm = this.admissionForm.value;
     myAdmForm.birthdate = myBdate;
-
+  
     if (this.admissionForm.valid) {
       const v = myAdmForm;
       if (!this.user)
@@ -306,7 +304,6 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
     } else {
       this.showErrors(this.admissionForm);
     }
-    // console.log(this.formErrors);
   }
 
   async academicInfoDone() {
