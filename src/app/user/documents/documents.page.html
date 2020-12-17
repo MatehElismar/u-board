@@ -4,6 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Documents of {{studentRecord?.names | titlecase}} {{studentRecord?.lastnames | titlecase}}</ion-title>
+    <ion-label class="ion-float-right"> {{user?.displayName}} </ion-label>
   </ion-toolbar>
 </ion-header>
 
@@ -35,10 +36,13 @@
                 <ion-button
                   [color]="documents['ACTA_NACIMIENTO']?.url? 'success' : 'primary'"
                   (click)="documents['ACTA_NACIMIENTO']?.url? sendFiles('ACTA_NACIMIENTO') :  uploadFile('ACTA_NACIMIENTO')"
-                  >{{documents['ACTA_NACIMIENTO']?.url ? "Send" : studentRecord?.documents?.ACTA_NACIMIENTO?.url ? "Actualizar" :
-                  "Upload"}}
+                  >{{documents['ACTA_NACIMIENTO']?.url ? "Send" : studentRecord?.documents?.ACTA_NACIMIENTO?.url ?
+                  "Actualizar" : "Upload"}}
                 </ion-button>
-                <ion-button color="danger" *ngIf="documents['ACTA_NACIMIENTO']?.url" (click)="cancelUpload('ACTA_NACIMIENTO')"
+                <ion-button
+                  color="danger"
+                  *ngIf="documents['ACTA_NACIMIENTO']?.url"
+                  (click)="cancelUpload('ACTA_NACIMIENTO')"
                   >Cancelar
                 </ion-button>
               </div>
@@ -54,20 +58,23 @@
             />
             </div>
             <ion-card-content class="ion-text-center">
-              <ion-label> Records de notas de bachillerato  </ion-label>
+              <ion-label> Records de notas de bachillerato </ion-label>
 
               <div class="btn">
                 <ion-button class="bu" color="warning">
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['RECORD_BACHILLERATO']?.url? 'success' : 'primary'"
                   (click)="documents['RECORD_BACHILLERATO']?.url? sendFiles('RECORD_BACHILLERATO') :  uploadFile('RECORD_BACHILLERATO')"
-                  >{{documents['RECORD_BACHILLERATO']?.url ? "Send" : studentRecord?.documents?.RECORD_BACHILLERATO?.url ? "Actualizar" :
-                  "Upload"}}
+                  >{{documents['RECORD_BACHILLERATO']?.url ? "Send" : studentRecord?.documents?.RECORD_BACHILLERATO?.url
+                  ? "Actualizar" : "Upload"}}
                 </ion-button>
-                <ion-button color="danger" *ngIf="documents['RECORD_BACHILLERATO']?.url" (click)="cancelUpload('RECORD_BACHILLERATO')"
+                <ion-button
+                  color="danger"
+                  *ngIf="documents['RECORD_BACHILLERATO']?.url"
+                  (click)="cancelUpload('RECORD_BACHILLERATO')"
                   >Cancelar
                 </ion-button>
               </div>
@@ -90,13 +97,16 @@
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['CERTIFICACION_BACHILLERATO']?.url? 'success' : 'primary'"
                   (click)="documents['CERTIFICACION_BACHILLERATO']?.url? sendFiles('CERTIFICACION_BACHILLERATO') :  uploadFile('CERTIFICACION_BACHILLERATO')"
-                  >{{documents['CERTIFICACION_BACHILLERATO']?.url ? "Send" : studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url ? "Actualizar" :
-                  "Upload"}}
+                  >{{documents['CERTIFICACION_BACHILLERATO']?.url ? "Send" :
+                  studentRecord?.documents?.CERTIFICACION_BACHILLERATO?.url ? "Actualizar" : "Upload"}}
                 </ion-button>
-                <ion-button color="danger" *ngIf="documents['CERTIFICACION_BACHILLERATO']?.url" (click)="cancelUpload('CERTIFICACION_BACHILLERATO')"
+                <ion-button
+                  color="danger"
+                  *ngIf="documents['CERTIFICACION_BACHILLERATO']?.url"
+                  (click)="cancelUpload('CERTIFICACION_BACHILLERATO')"
                   >Cancelar
                 </ion-button>
               </div>
@@ -119,7 +129,7 @@
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['CEDULA']?.url? 'success' : 'primary'"
                   (click)="documents['CEDULA']?.url? sendFiles('CEDULA') :  uploadFile('CEDULA')"
                   >{{documents['CEDULA']?.url ? "Send" : studentRecord?.documents?.CEDULA?.url ? "Actualizar" :
@@ -148,7 +158,7 @@
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['PASAPORTE']?.url? 'success' : 'primary'"
                   (click)="documents['PASAPORTE']?.url? sendFiles('PASAPORTE') :  uploadFile('PASAPORTE')"
                   >{{documents['PASAPORTE']?.url ? "Send" : studentRecord?.documents?.PASAPORTE?.url ? "Actualizar" :
@@ -177,7 +187,7 @@
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['FOTOS2X2']?.url? 'success' : 'primary'"
                   (click)="documents['FOTOS2X2']?.url? sendFiles('FOTOS2X2') :  uploadFile('FOTOS2X2')"
                   >{{documents['FOTOS2X2']?.url ? "Send" : studentRecord?.documents?.FOTOS2X2?.url ? "Actualizar" :
@@ -201,17 +211,15 @@
             <ion-card-content class="ion-text-center">
               <ion-label> Visa de estudiante </ion-label>
 
-             
               <div class="btn">
                 <ion-button class="bu" color="warning">
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['VISA']?.url? 'success' : 'primary'"
                   (click)="documents['VISA']?.url? sendFiles('VISA') :  uploadFile('VISA')"
-                  >{{documents['VISA']?.url ? "Send" : studentRecord?.documents?.VISA?.url ? "Actualizar" :
-                  "Upload"}}
+                  >{{documents['VISA']?.url ? "Send" : studentRecord?.documents?.VISA?.url ? "Actualizar" : "Upload"}}
                 </ion-button>
                 <ion-button color="danger" *ngIf="documents['VISA']?.url" (click)="cancelUpload('VISA')"
                   >Cancelar
@@ -236,11 +244,11 @@
                   No adquirido
                 </ion-button>
                 <ion-button
-                class="bu"
+                  class="bu"
                   [color]="documents['EXAMEN_ESPANOL']?.url? 'success' : 'primary'"
                   (click)="documents['EXAMEN_ESPANOL']?.url? sendFiles('EXAMEN_ESPANOL') :  uploadFile('EXAMEN_ESPANOL')"
-                  >{{documents['EXAMEN_ESPANOL']?.url ? "Send" : studentRecord?.documents?.EXAMEN_ESPANOL?.url ? "Actualizar" :
-                  "Upload"}}
+                  >{{documents['EXAMEN_ESPANOL']?.url ? "Send" : studentRecord?.documents?.EXAMEN_ESPANOL?.url ?
+                  "Actualizar" : "Upload"}}
                 </ion-button>
                 <ion-button color="danger" *ngIf="documents['EXAMEN_ESPANOL']?.url" (click)="cancelUpload('VISA')"
                   >Cancelar
@@ -252,11 +260,9 @@
       </ion-row>
 
       <div class="btn-submit ion-text-center">
-        <ion-button color="success">
-          Subir documentos 
-        </ion-button>
+        <ion-button color="success"> Subir documentos </ion-button>
       </div>
-      <br>
+      <br />
     </ion-col>
   </ion-row>
 </ion-content>
