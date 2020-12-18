@@ -1,0 +1,55 @@
+ion-toolbar {
+  --background: #545ee8;
+  color: white;
+}
+
+ion-card {
+  height: auto;
+  border-radius: 20px;
+}
+
+ion-card-header h1 {
+  font-size: 35px !important;
+}
+
+ion-card-content p {
+  padding: 30px !important;
+  font-size: 15px;
+  text-align: center;
+}
+
+ion-avatar {
+  margin: 0 auto;
+  width: 120px !important;
+  height: 120px !important;
+  border: 3px solid #ffb700;
+  border-style: dashed;
+  margin-top: -40px;
+  z-index: 5000 !important;
+}
+
+.imagen {
+  margin: 0 auto;
+  width: 200px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+ion-button {
+  font-size: 12px !important;
+  --background: #ffb700;
+  --border-radius: 15px !important;
+}
+
+ion-progress-bar {
+    --buffer-background:#ffb700;
+}
+
+ion-chip {
+    color: white;
+    background-color: #ffb700;
+}

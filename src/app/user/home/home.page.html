@@ -3,10 +3,39 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>home</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-row>
+    <ion-col size="12" sizeMd="6" offset="3">
+      <ion-card color="light">
+        <ion-card-header>
+          <div class="imagen ion-text-center">
+            <img src="../../../assets/ilustrations/151.-CV-Application.svg">
+            <!-- <img src="../../../assets/ilustrations/14.-Fatal-Error.svg" alt=""> -->
+          </div>
+          <h1 class="animate__animated animate__shakeX ion-text-center">¡Welcome!</h1>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <p>We are grateful for your registration in U board. 
+            Now the administration is processing your documents and will notify you if you have to update some, 
+            otherwise they will send you the date of your admission test.</p>
+
+            <ion-chip class="animate__animated animate__pulse animate__infinite	">
+              In Process
+            </ion-chip>
+
+            <!-- <p>Woow!, the administration found errors in your documents, take a look.</p> -->
+            <!-- <div class="btn">
+              <ion-button routerLink="/user/documents">Go to Documents</ion-button>
+            </div> -->
+          </ion-card-content>
+          <ion-progress-bar value="0.25" buffer="0.5"></ion-progress-bar>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 
 </ion-content>
