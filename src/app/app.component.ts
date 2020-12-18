@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     private fireFunctions: AngularFireFunctions
   ) {
     this.initializeApp();
-    this.fireFunctions.useFunctionsEmulator("http://localhost:5001");
+    //this.fireFunctions.useFunctionsEmulator("http://localhost:5001");
   }
 
   initializeApp() {

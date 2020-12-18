@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import("./admissions/admissions.module").then((m) => m.AdmissionsPageModule),
   },
   {
-    path: 'student-record',
+    path: 'student-record/:id',
     loadChildren: () => import('./student-record/student-record.module').then( m => m.StudentRecordPageModule)
   },
 ];

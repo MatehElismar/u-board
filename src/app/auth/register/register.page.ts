@@ -98,7 +98,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
       study_type: ["", [Validators.required]],
       career: ["", [Validators.required]],
       highSchool_name: ["", [Validators.required]],
-      grade_career: ["BACHILLER"],
+      grade_career: [""],
       previousUniversity_name: [""],
       previousUniversity_career: [""],
     });
@@ -107,6 +107,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
       blood_type: ["", [Validators.required]],
       isAlergic: [""],
       disease: [""],
+      treatment: [""],
     });
 
     this.familyForm = this.fb.group({
@@ -129,7 +130,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
       this.user = user;
       console.log(this.user);
       this.subs.sink = this.afs
-        .collection<StudentRecord>(`student-records/`, (ref) => ref.where("uid", "==", this.user.uid).limit(1))
+        .collection<StudentRecord>('student-records', (ref) => ref.where("uid", "==", this.user.uid).limit(1))
         .valueChanges()
         .subscribe(async (records) => {
           await Promise.all(
@@ -168,6 +169,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
           this.medicalForm.get("blood_type").patchValue(medical?.blood_type);
           this.medicalForm.get("isAlergic").patchValue(medical?.isAlergic);
           this.medicalForm.get("disease").patchValue(medical?.disease);
+          this.medicalForm.get("treatment").patchValue(medical?.treatment);
 
           const family = this.studentRecord.family;
           this.familyForm.get("father_names").patchValue(family?.father_names);
@@ -257,6 +259,7 @@ export class RegisterPage extends FormComponentBase implements OnInit, AfterView
     myAdmForm.birthdate = myBdate;
   
     if (this.admissionForm.valid) {
+      console.log(myAdmForm)
       const v = myAdmForm;
       if (!this.user)
         this.auth

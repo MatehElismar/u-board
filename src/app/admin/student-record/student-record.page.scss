@@ -42,8 +42,10 @@ ion-avatar {
   padding-left: 10px;
 }
 
-.sub-title h4 {
+.sub-title h3 {
   color: #545ee8;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .personal-info {
@@ -66,6 +68,21 @@ ion-avatar {
   height: 60px;
 }
 
+.familiarText {
+  font-weight: bold;
+  color: #545ee8;
+  font-size: 16px;
+}
+
+.u-border {
+  border: solid 2px #545ee8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
 ion-card {
   padding: 5px;
 }
@@ -74,4 +91,45 @@ ion-card {
   font-size: 12px !important;
   // --background: #ffb700;
   --border-radius: 15px !important;
+}
+
+a:link {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #545ee8;
+}
+
+a:visited {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #545ee8;
+}
+
+a:hover {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #545ee8;
+}
+
+a:active {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #545ee8;
+}
+
+a > p {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  color: black;
+}
+
+ion-col > div > b {
+  font-size: 13px;
+  font-weight: bolder;
+  color: black;
 }

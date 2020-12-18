@@ -12,7 +12,7 @@
           <ion-col size="12" sizeMd="4">
             <!-- AQUI VA LA FOTO 2X2 QUE SUBAN EN LOS DOCUMENTOS -->
             <ion-avatar>
-              <img src="https://www.inboundcycle.com/hubfs/ClaraAlvarez.jpg">
+              <img src={{theMainRecord?.documents?.FOTOS2X2.url}}>
             </ion-avatar>
           </ion-col>
           <ion-col size="12" sizeMd="8">
@@ -24,95 +24,101 @@
         </ion-row>
             <div class="personal-info ion-padding">
               <div class="sub-title">
-                <h4>Informacion Personal</h4>
+                <h3>Información Personal</h3>
               </div>
               <ion-row class="ion-text-center">
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Junior Jerameel</ion-label>
+                  <ion-label>{{theMainRecord?.names}}</ion-label>
                   <div class="campo">
                     <b>Nombres</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Polanco Silvestre</ion-label>
+                  <ion-label>{{theMainRecord?.lastnames}}</ion-label>
                   <div class="campo">
                     <b>Apellidos</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Indefinido</ion-label>
+                  <ion-label>{{theMainRecord?.gender}}</ion-label>
                   <div class="campo">
                     <b>Sexo</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>222-33443223-9</ion-label>
+                  <ion-label>{{theMainRecord?.cedula}}</ion-label>
                   <div class="campo">
-                    <b>Cedula</b>
+                    <b>Cédula</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>JuniorJerameel@gmail.com</ion-label>
+                  <ion-label>{{theMainRecord?.email}}</ion-label>
                   <div class="campo">
                     <b>Correo</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>809 222-6666</ion-label>
+                  <ion-label>{{theMainRecord?.cellphone}}</ion-label>
                   <div class="campo">
-                    <b>Telefono</b>
+                    <b>Celular</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>15-10-1998</ion-label>
+                  <ion-label>{{theMainRecord?.telephone}}</ion-label>
+                  <div class="campo">
+                    <b>Teléfono</b>
+                  </div>
+                </ion-col>
+                <ion-col size="12" sizeMd="4">
+                  <ion-label>{{bDate}}</ion-label>
                   <div class="campo">
                     <b>Fecha de Nacimiento</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Calle 13 de junio</ion-label>
+                  <ion-label>{{theMainRecord?.address?.streetName}}</ion-label>
                   <div class="campo">
-                    <b>Direccion</b>
+                    <b>Dirección</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>#5</ion-label>
+                  <ion-label>{{theMainRecord?.address?.streetNumber}}</ion-label>
                   <div class="campo">
-                    <b>Numero de Casa</b>
+                    <b>Número de Casa</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Los Frailes</ion-label>
+                  <ion-label>{{theMainRecord?.address?.neighborhood}}</ion-label>
                   <div class="campo">
                     <b>Sector</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Investigandolo</ion-label>
+                  <ion-label>{{theMainRecord?.address?.municipality}}</ion-label>
                   <div class="campo">
                     <b>Municipio</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Santo Domingo</ion-label>
+                  <ion-label>{{theMainRecord?.address?.province}}</ion-label>
                   <div class="campo">
                     <b>Provincia</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Dominicano</ion-label>
+                  <ion-label>{{theMainRecord?.nationality}}</ion-label>
                   <div class="campo">
                     <b>Nacionalidad</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Evangelico Moderno</ion-label>
+                  <ion-label>{{theMainRecord?.religion}}</ion-label>
                   <div class="campo">
-                    <b>Religion</b>
+                    <b>Religión</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Union Libre</ion-label>
+                  <ion-label>{{theMainRecord?.civil_status}}</ion-label>
                   <div class="campo">
                     <b>Estado Civil</b>
                   </div>
@@ -122,41 +128,41 @@
 
             <div class="academic-info ion-padding">
               <div class="sub-title">
-                <h4>Informacion Academica</h4>
+                <h3>Información Académica</h3>
               </div>
               <ion-row class="ion-text-center">
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Licenciatura</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.study_type}}</ion-label>
                   <div class="campo">
                     <b>Estudios a Realizar</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Medico</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.career}}</ion-label>
                   <div class="campo">
                     <b>Carrera</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Escuela Marlyn Pimentel</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.highSchool_name}}</ion-label>
                   <div class="campo">
                     <b>Bachiller</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>La Calle Wawawa</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.grade_career}}</ion-label>
                   <div class="campo">
                     <b>Carrera Finalizada</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>La Unfu</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.previousUniversity_name}}</ion-label>
                   <div class="campo">
                     <b>Universidad Previa</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Enfermero</ion-label>
+                  <ion-label>{{theMainRecord?.academic?.previousUniversity_career}}</ion-label>
                   <div class="campo">
                     <b>Carrera Previa</b>
                   </div>
@@ -166,29 +172,29 @@
 
             <div class="medical-info ion-padding">
               <div class="sub-title">
-                <h4>Información Médica</h4>
+                <h3>Información Médica</h3>
               </div>
               <ion-row class="ion-text-center">
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>A-</ion-label>
+                  <ion-label>{{theMainRecord?.medical?.blood_type}}</ion-label>
                   <div class="campo">
                     <b>Tipo de Sangre</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Quiebra, Pobreza</ion-label>
+                  <ion-label>{{theMainRecord?.medical?.isAlergic}}</ion-label>
                   <div class="campo">
-                    <b>Alergico a</b>
+                    <b>Alérgico a</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Diabetes</ion-label>
+                  <ion-label>{{theMainRecord?.medical?.disease}}</ion-label>
                   <div class="campo">
                     <b>Enfermedad</b>
                   </div>
                 </ion-col>
                 <ion-col size="12" sizeMd="4">
-                  <ion-label>Null</ion-label>
+                  <ion-label>{{theMainRecord?.medical?.treatment}}</ion-label>
                   <div class="campo">
                     <b>Tratamiento o Medicamento</b>
                   </div>
@@ -197,125 +203,130 @@
             </div>
 
             <div class="family-info ion-padding">
+
               <div class="sub-title">
-                <h4>Información Familiar</h4>
-                <ion-label class="ion-text-center"><b>Padre</b></ion-label>
+                <h3>Información Familiar</h3>
+    
+                <div class="u-border">
+                  <ion-label class="familiarText">Padre</ion-label>
+                  <ion-row class="ion-text-center">
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.father_names}}</ion-label>
+                      <div class="campo">
+                        <b>Nombre</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.father_lastnames}}</ion-label>
+                      <div class="campo">
+                        <b>Apellidos</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.father_telephone}}</ion-label>
+                      <div class="campo">
+                        <b>Teléfono/Celular</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.father_occupation}}</ion-label>
+                      <div class="campo">
+                        <b>Ocupacion</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.father_civil_status}}</ion-label>
+                      <div class="campo">
+                        <b>Estado Civil</b>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+    
+                <div class="u-border">
+                  <ion-label class="familiarText">Madre</ion-label>
+                  <ion-row class="ion-text-center">
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.mother_names}}</ion-label>
+                      <div class="campo">
+                        <b>Nombre</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.mother_lastnames}}</ion-label>
+                      <div class="campo">
+                        <b>Apellidos</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.mother_telephone}}</ion-label>
+                      <div class="campo">
+                        <b>Teléfono/Celular</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.mother_occupation}}</ion-label>
+                      <div class="campo">
+                        <b>Ocupacion</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.mother_civil_status}}</ion-label>
+                      <div class="campo">
+                        <b>Estado Civil</b>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+      
+                <div class="u-border">
+                  <ion-label class="familiarText">Esposo / Esposa</ion-label>
+                  <ion-row class="ion-text-center">
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.wife_or_husband_names}}</ion-label>
+                      <div class="campo">
+                        <b>Nombre</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.wife_or_husband_lastnames}}</ion-label>
+                      <div class="campo">
+                        <b>Apellidos</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.wife_or_husband_telephone}}</ion-label>
+                      <div class="campo">
+                        <b>Teléfono/Celular</b>
+                      </div>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4">
+                      <ion-label>{{theMainRecord?.family?.wife_or_husband_occupation}}</ion-label>
+                      <div class="campo">
+                        <b>Ocupación</b>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+                
               </div>
-              <ion-row class="ion-text-center">
-                <ion-col size="12" sizeMd="4">
-                  <ion-label>Junior</ion-label>
-                  <div class="campo">
-                    <b>Nombre</b>
-                  </div>
-                </ion-col>
-                <ion-col size="12" sizeMd="4">
-                  <ion-label>Polanco Silvestre</ion-label>
-                  <div class="campo">
-                    <b>Apellidos</b>
-                  </div>
-                </ion-col>
-                <ion-col size="12" sizeMd="4">
-                  <ion-label>809 222-6666</ion-label>
-                  <div class="campo">
-                    <b>Telefono/Celular</b>
-                  </div>
-                </ion-col>
-                <ion-col size="12" sizeMd="4">
-                  <ion-label>Jefe de Mantenimiento</ion-label>
-                  <div class="campo">
-                    <b>Ocupacion</b>
-                  </div>
-                </ion-col>
-                <ion-col size="12" sizeMd="4">
-                  <ion-label>Union Libre</ion-label>
-                  <div class="campo">
-                    <b>Estado Civil</b>
-                  </div>
-                </ion-col>
-              </ion-row>
+    
             </div>
-
-              <div class="ion-padding">
-                <div class="sub-title">
-                  <ion-label><b>Madre</b></ion-label>
-                </div>
-                <ion-row class="ion-text-center">
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Junior</ion-label>
-                    <div class="campo">
-                      <b>Nombre</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Polanco Silvestre</ion-label>
-                    <div class="campo">
-                      <b>Apellidos</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>809 222-6666</ion-label>
-                    <div class="campo">
-                      <b>Telefono/Celular</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Jefe de Mantenimiento</ion-label>
-                    <div class="campo">
-                      <b>Ocupacion</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Union Libre</ion-label>
-                    <div class="campo">
-                      <b>Estado Civil</b>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="ion-padding">
-                <div class="sub-title">
-                  <ion-label><b>Esposo / Esposa</b></ion-label>
-                </div>
-                <ion-row class="ion-text-center">
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Junior</ion-label>
-                    <div class="campo">
-                      <b>Nombre</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Polanco Silvestre</ion-label>
-                    <div class="campo">
-                      <b>Apellidos</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>809 222-6666</ion-label>
-                    <div class="campo">
-                      <b>Telefono/Celular</b>
-                    </div>
-                  </ion-col>
-                  <ion-col size="12" sizeMd="4">
-                    <ion-label>Jefe de Mantenimiento</ion-label>
-                    <div class="campo">
-                      <b>Ocupacion</b>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
 
               <div class="docs ion-padding">
                 <div class="sub-title">
-                  <h4>Documentos</h4>
+                  <h3>Documentos</h3>
                 </div>
                 <ion-row>
                   <ion-col size="12" sizeMd="4">
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Acta de Nacimiento
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.ACTA_NACIMIENTO.url}} target="_blank">
+                            Acta de Nacimiento
+                            <p>Message in case...</p>
+                          </a>
+                          
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -332,8 +343,11 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Record Bachillerato
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.RECORD_BACHILLERATO.url}} target="_blank">
+                            Record Bachillerato
+                            <p>Message in case...</p>
+                          </a>
+                          
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -350,8 +364,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Cert. Bachillerato
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.CERTIFICACION_BACHILLERATO.url}} target="_blank">
+                            Cert. Bachillerato
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -368,8 +384,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Cedula
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.CEDULA.url}} target="_blank">
+                            Cédula
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -386,8 +404,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Foto 2x2
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.FOTOS2X2.url}} target="_blank">
+                            Foto 2x2
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -404,8 +424,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                         Copia Pasaporte
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.PASAPORTE.url}} target="_blank">
+                            Copia Pasaporte
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -422,8 +444,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Visa de Estudiante
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.VISA.url}} target="_blank">
+                            Visa de Estudiante
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">
@@ -440,8 +464,10 @@
                     <ion-card color="light">
                       <ion-item button lines="none">
                         <ion-label class="ion-text-wrap">
-                          Ex. de español
-                          <p>Message in case...</p>
+                          <a href={{theMainRecord?.documents?.EXAMEN_ESPANOL.url}} target="_blank">
+                            Ex. de Español
+                            <p>Message in case...</p>
+                          </a>
                         </ion-label>
                         <ion-buttons slot="end">
                           <ion-button (click)="ReturnDocument()">

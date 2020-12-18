@@ -32,6 +32,7 @@ export interface StudentRecord {
     blood_type?: string;
     isAlergic?: string;
     disease?: string;
+    treatment?: string;
   };
   // family
   family?: {
